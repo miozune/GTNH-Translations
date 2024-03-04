@@ -5,50 +5,20 @@ on:
   workflow_dispatch:
 
 jobs:
-  zh_CN:
+  ja_JP1:
     uses: ./.github/workflows/publish-nightly-lang-pack.yml
-    with:
-      target_lang: zh_CN
-    secrets: inherit
-  ja_JP:
-    uses: ./.github/workflows/publish-nightly-lang-pack.yml
-    needs: zh_CN # Require previous run to finish
     with:
       target_lang: ja_JP
     secrets: inherit
-  ko_KR:
+  ja_JP2:
     uses: ./.github/workflows/publish-nightly-lang-pack.yml
-    needs: ja_JP # Require previous run to finish
+    needs: ja_JP1 # Require previous run to finish
     with:
-      target_lang: ko_KR
+      target_lang: ja_JP
     secrets: inherit
-  pt_BR:
+  ja_JP3:
     uses: ./.github/workflows/publish-nightly-lang-pack.yml
-    needs: ko_KR # Require previous run to finish
+    needs: ja_JP2 # Require previous run to finish
     with:
-      target_lang: pt_BR
-    secrets: inherit
-  fr_FR:
-    uses: ./.github/workflows/publish-nightly-lang-pack.yml
-    needs: pt_BR # Require previous run to finish
-    with:
-      target_lang: fr_FR
-    secrets: inherit
-  es_ES:
-    uses: ./.github/workflows/publish-nightly-lang-pack.yml
-    needs: fr_FR # Require previous run to finish
-    with:
-      target_lang: es_ES
-    secrets: inherit
-  tr_TR:
-    uses: ./.github/workflows/publish-nightly-lang-pack.yml
-    needs: es_ES # Require previous run to finish
-    with:
-      target_lang: tr_TR
-    secrets: inherit
-  de_DE:
-    uses: ./.github/workflows/publish-nightly-lang-pack.yml
-    needs: tr_TR # Require previous run to finish
-    with:
-      target_lang: de_DE
+      target_lang: ja_JP
     secrets: inherit

@@ -49,8 +49,8 @@ item.avaritia_beesource.dust.name=Dust
 item.extremely_primordial_pearl.name=Extremely Primordial Pearl
 #
 # Blocks
-tile.compressed_workbench.name=Compressed Crafting Table
-tile.very_compressed_workbench.name=Double Compressed Crafting Table
+tile.compressed_workbench.name=圧縮作業台
+tile.very_compressed_workbench.name=二重圧縮作業台
 tile.block_crystal_matrix.name=Crystal Matrix
 tile.block_neutronium.name=Cosmic Neutronium Block
 tile.block_infinity.name=Infinity Block

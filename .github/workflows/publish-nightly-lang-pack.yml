@@ -35,7 +35,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: origin/master
+          ref: master
       - name: Get current date
         id: date
         shell: bash

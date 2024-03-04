@@ -4,7 +4,7 @@
 
 This is a repository managing all the translations for GTNH.
 
-<!-- Contents below don't need to be translated! -->
+<!-- Contents below don't need to be translated! a -->
 
 ## For translators
 

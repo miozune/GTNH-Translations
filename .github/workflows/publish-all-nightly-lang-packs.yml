@@ -9,16 +9,19 @@ jobs:
     uses: ./.github/workflows/publish-nightly-lang-pack.yml
     with:
       target_lang: ja_JP
+      number: 1
     secrets: inherit
   ja_JP2:
     uses: ./.github/workflows/publish-nightly-lang-pack.yml
     needs: ja_JP1 # Require previous run to finish
     with:
       target_lang: ja_JP
+      number: 2
     secrets: inherit
   ja_JP3:
     uses: ./.github/workflows/publish-nightly-lang-pack.yml
     needs: ja_JP2 # Require previous run to finish
     with:
       target_lang: ja_JP
+      number: 3
     secrets: inherit

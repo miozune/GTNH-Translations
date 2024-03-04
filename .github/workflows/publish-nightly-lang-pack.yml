@@ -7,6 +7,8 @@ on:
         description: "Target language to run"
         required: true
         type: string
+      number:
+        type: number
   workflow_dispatch:
     inputs:
       target_lang:
@@ -76,15 +78,15 @@ jobs:
           git pull
           git push -d origin ${{ inputs.target_lang }}-latest || :
           gh release delete ${{ inputs.target_lang }}-latest || :
-          git tag ${{ inputs.target_lang }}-latest
-          git push origin ${{ inputs.target_lang }}-latest
+          git tag ${{ inputs.target_lang }}-${{ inputs.number }}-latest
+          git push origin ${{ inputs.target_lang }}-${{ inputs.number }}-latest
           git push origin master
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Release as Latest
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ inputs.target_lang }}-latest
+          tag_name: ${{ inputs.target_lang }}-${{ inputs.number }}-latest
           name: ${{ inputs.target_lang }} Latest
           files: |
             ./assets/GTNH-${{ inputs.target_lang }}-Translation-Nightly-${{ steps.date.outputs.today }}.zip

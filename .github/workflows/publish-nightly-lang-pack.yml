@@ -60,11 +60,11 @@ jobs:
       - name: Pack
         run: python .github/scripts/pack.py ${{ inputs.target_lang }}
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: GTNH-${{ inputs.target_lang }}-Translation-Nightly-${{ steps.date.outputs.today }}
-          path: ./temp/
+      # - name: Upload artifact
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: GTNH-${{ inputs.target_lang }}-Translation-Nightly-${{ steps.date.outputs.today }}
+      #     path: ./temp/
       - name: Zip
         run: |
           cd temp

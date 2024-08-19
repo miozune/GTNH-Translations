@@ -8,7 +8,7 @@ inputs:
 outputs:
   project_id:
     description: "Project ID of ParaTranz"
-    value: ${{ steps.output-project-id.outputs.project_id }}
+    value: ${{ steps.load-project-id.outputs.project_id }}
 
 runs:
   using: composite
@@ -19,11 +19,12 @@ runs:
       shell: bash
       run: sudo apt-get install jq
     - name: Load project ID from JSON
+      id: load-project-id
       shell: bash
       run: |
         project_id=$(jq -r --arg lang "$target_lang" '.[$lang]' paratranz-projects.json)
         if [ "$project_id" == "null" ]; then
-          echo "Invalid language: $target_lang"
+          echo "Unknown language: $target_lang"
           exit 1
         fi
         echo "project_id=${project_id}" >> $GITHUB_OUTPUT

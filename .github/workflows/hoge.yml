@@ -1,0 +1,25 @@
+name: hoge
+
+on:
+    workflow_dispatch:
+      inputs:
+        target_lang:
+          description: "Target language to run"
+          required: true
+          type: string
+
+jobs:
+  hoge:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        ref: master
+        fetch-depth: 2
+    - name: Get project ID
+      id: get-project-id
+      uses: ./.github/actions/get-project-id
+      with:
+        target_lang: ${{ inputs.target_lang }}
+    - name: Test project ID
+      run: echo ${{ steps.get-project-id.outputs.project_id }}

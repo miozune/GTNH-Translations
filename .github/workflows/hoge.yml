@@ -22,4 +22,4 @@ jobs:
       with:
         target_lang: ${{ inputs.target_lang }}
     - name: Test project ID
-      run: echo ${{ steps.get-project-id.outputs.project_id }}
+      run: echo "${{ steps.get-project-id.outputs.project_id }}"
